@@ -1,4 +1,7 @@
 package Hooks;
+import Core.Dsl.Commands;
+import Core.PagesMap.CadastrarPageElements.CadastrarElements;
+import Core.PagesMap.LoginPageElements.LoginElements;
 import org.junit.After;
 import org.junit.Before;
 
@@ -14,8 +17,13 @@ public class DriverInit extends DriverLoading {
     }
 
     @After
-    public void afterExecution() throws IOException {
+    public void afterRunTest() throws IOException {
 
-        driver.quit();
+        //driver.quit();
     }
+
+    // Base para CTs
+
+    LoginElements loginElements = new LoginElements();
+    CadastrarElements cadastrarElements = new CadastrarElements();
 }

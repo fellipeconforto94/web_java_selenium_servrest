@@ -1,0 +1,20 @@
+{
+  "valido" : {
+    "email" : "fellipeqa@teste.com",
+    "senha" : "12345678",
+    "mensagemEntrada" : "Bem vindo, Fellipe!"
+  },
+
+  "invalido" : {
+    "email" : "fellipetest@invalido.com",
+    "senha" : "error",
+    "errorMsgEmailSenhaInvalidos" : "Email e/ou senha inválidos"
+  },
+
+  "vazio" : {
+    "email" : "",
+    "pass" : "",
+    "errorMsgEmailObrigatorio" : "Email é um campo obrigatório",
+    "errorMsgSenhaObrigatorio" : "Senha é um campo obrigatório"
+  }
+}

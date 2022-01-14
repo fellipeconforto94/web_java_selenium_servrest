@@ -1,4 +1,4 @@
-package Bean.Dsl;
+package Core.Dsl;
 
 import Hooks.DriverLoading;
 import org.openqa.selenium.By;

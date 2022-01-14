@@ -1,0 +1,8 @@
+{
+  "sucesso" : {
+    "nome_completo" : "Fellipe Qa",
+    "email" : "fellipeqa2@teste.com",
+    "senha" : "12345678",
+    "mensagemCadastroSucesso" : "Cadastro realizado com sucesso"
+  }
+}
