@@ -23,9 +23,9 @@ public class CtsCadastrar extends DriverInit {
     }
 
     @Test
-    public void ct03_cadastrar_falha() throws Exception {
+    public void ct03_email_existente() throws Exception {
 
-        dadosDoCadastro.cadastrarFalha();
+        dadosDoCadastro.cadastrarEmailExistente();
     }
 
 }
