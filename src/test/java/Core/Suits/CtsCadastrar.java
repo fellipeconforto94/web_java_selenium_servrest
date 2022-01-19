@@ -1,11 +1,12 @@
 package Core.Suits;
 
 import Core.Action.LoginPage.CadastrarAction;
-import Core.Dsl.Commands;
 import Hooks.DriverInit;
-import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CtsCadastrar extends DriverInit {
 
     CadastrarAction dadosDoCadastro = new CadastrarAction();

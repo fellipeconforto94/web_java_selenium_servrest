@@ -10,19 +10,35 @@ import org.junit.Assert;
 
 public class CadastrarAction extends Commands {
 
-    Geradores geradores;
     LoginElements dadosLogin = new LoginElements();
     CadastrarElements dadosCadastrar = new CadastrarElements();
+    JSONObject cadastrarJson = null;
+
+    public void cadastrar(String json, String tipo) throws Exception {
+
+        if (json == "sucesso") {
+            cadastrarJson = JsonObj.getJsonDataObject("CadastrarData", "sucesso");
+        }
+        if (json == "existente") {
+            cadastrarJson = JsonObj.getJsonDataObject("CadastrarData", "email_existente");
+        }
+
+        click(dadosLogin.btnCadastreLogin);
+        sendKeys(dadosCadastrar.inputNome, (String) cadastrarJson.get("nome_completo"));
+
+        if(tipo == "admin") {
+            sendKeys(dadosCadastrar.inputEmailCadastrar, (String) cadastrarJson.get("email_admin"));
+            click(dadosCadastrar.cbAdmin);
+        } else {
+            sendKeys(dadosCadastrar.inputEmailCadastrar, (String) cadastrarJson.get("email"));
+        }
+        sendKeys(dadosCadastrar.inputSenhaCadastrar, (String) cadastrarJson.get("senha"));
+        click(dadosCadastrar.btnCadastrar);
+    }
 
     public void cadastrarSucesso() throws Exception {
 
-        JSONObject cadastrarJson = JsonObj.getJsonDataObject("CadastrarData", "sucesso");
-
-        click(dadosLogin.btnCadastreLogin);
-        sendKeys(dadosCadastrar.inputNome, (String)cadastrarJson.get("nome_completo"));
-        sendKeys(dadosCadastrar.inputEmailCadastrar, (String)cadastrarJson.get("email"));
-        sendKeys(dadosCadastrar.inputSenhaCadastrar, (String)cadastrarJson.get("senha"));
-        click(dadosCadastrar.btnCadastrar);
+        cadastrar("sucesso", "padrao");
         isAttachedToHtml(dadosCadastrar.msgCadastroSucesso);
         Assert.assertEquals(cadastrarJson.get("mensagemCadastroSucesso"), getTextFromLabel(dadosCadastrar.msgCadastroSucesso));
         System.out.println(getTextFromLabel(dadosCadastrar.msgCadastroSucesso));
@@ -30,15 +46,7 @@ public class CadastrarAction extends Commands {
 
     public void cadastrarSucessoAdmin() throws Exception {
 
-        JSONObject cadastrarJson = JsonObj.getJsonDataObject("CadastrarData", "sucesso");
-
-        System.out.println("Cadastro com Administrador");
-        click(dadosLogin.btnCadastreLogin);
-        sendKeys(dadosCadastrar.inputNome, (String)cadastrarJson.get("nome_completo"));
-        sendKeys(dadosCadastrar.inputEmailCadastrar, (String)cadastrarJson.get("email_admin"));
-        sendKeys(dadosCadastrar.inputSenhaCadastrar, (String)cadastrarJson.get("senha"));
-        click(dadosCadastrar.cbAdmin);
-        click(dadosCadastrar.btnCadastrar);
+        cadastrar("sucesso", "admin");
         isAttachedToHtml(dadosCadastrar.msgCadastroSucesso);
         Assert.assertEquals(cadastrarJson.get("mensagemCadastroSucesso"), getTextFromLabel(dadosCadastrar.msgCadastroSucesso));
         System.out.println(getTextFromLabel(dadosCadastrar.msgCadastroSucesso));
@@ -46,14 +54,7 @@ public class CadastrarAction extends Commands {
 
     public void cadastrarEmailExistente() throws Exception {
 
-        JSONObject cadastrarJson = JsonObj.getJsonDataObject("CadastrarData", "email_existente");
-
-        click(dadosLogin.btnCadastreLogin);
-        sendKeys(dadosCadastrar.inputNome, (String)cadastrarJson.get("nome_completo"));
-        sendKeys(dadosCadastrar.inputEmailCadastrar, (String)cadastrarJson.get("email"));
-        sendKeys(dadosCadastrar.inputSenhaCadastrar, (String)cadastrarJson.get("senha"));
-        click(dadosCadastrar.cbAdmin);
-        click(dadosCadastrar.btnCadastrar);
+        cadastrar("existente", "admin");
         Assert.assertEquals(cadastrarJson.get("mensagemEmailUsado"), getTextFromLabel(dadosCadastrar.msgEmailExistente));
         System.out.println("Result:"+getTextFromLabel(dadosCadastrar.msgEmailExistente));
     }

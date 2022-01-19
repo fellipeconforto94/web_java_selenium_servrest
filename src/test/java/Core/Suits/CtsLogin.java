@@ -2,8 +2,11 @@ package Core.Suits;
 
 import Core.Action.LoginPage.LoginAction;
 import Hooks.DriverInit;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CtsLogin extends DriverInit {
 
     LoginAction dadosDoLogin = new LoginAction();

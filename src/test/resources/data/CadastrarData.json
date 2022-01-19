@@ -1,15 +1,16 @@
 {
   "sucesso" : {
     "nome_completo" : "Fellipe Qa",
-    "email" : "fellipeqa11@teste.com",
-    "email_admin" : "fellipeqa12@teste.com",
+    "email" : "fellipeqa20@teste.com",
+    "email_admin" : "fellipeqa21@teste.com",
     "senha" : "12345678",
     "mensagemCadastroSucesso" : "Cadastro realizado com sucesso"
   },
 
   "email_existente" : {
     "nome_completo" : "Fellipe Qa II",
-    "email" : "fellipeqa10@teste.com",
+    "email" : "fellipeqa20@teste.com",
+    "email_admin" : "fellipeqa21@teste.com",
     "senha" : "12345678",
     "mensagemEmailUsado" : "Este email já está sendo usado"
   }
