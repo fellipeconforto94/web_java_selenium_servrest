@@ -1,7 +1,11 @@
 {
   "valido" : {
-    "email" : "fellipeqa21@teste.com",
+    "email" : "fcadmin@teste.com",
     "senha" : "12345678"
+  },
+  "valido_admin" : {
+    "email" : "adm.qa@teste.com",
+    "senha" : "qatest"
   },
 
   "invalido" : {

@@ -1,16 +1,26 @@
 {
   "sucesso" : {
-    "nome_completo" : "Fellipe Qa",
-    "email" : "fellipeqa20@teste.com",
-    "email_admin" : "fellipeqa21@teste.com",
+    "nome_completo" : "Fc Qa",
+    "nome_completo_admin" : "Fc Qa Admin",
+    "email" : "fcqa@teste.com",
+    "email_admin" : "fcadmin@teste.com",
     "senha" : "12345678",
     "mensagemCadastroSucesso" : "Cadastro realizado com sucesso"
   },
 
+  "admin_total" : {
+    "nome_completo_admin" : "Admin Qa",
+    "email_admin" : "adm.qa@teste.com",
+    "senha" : "qatest",
+    "mensagemCadastroSucesso" : "Cadastro realizado com sucesso"
+  },
+
+
   "email_existente" : {
-    "nome_completo" : "Fellipe Qa II",
-    "email" : "fellipeqa20@teste.com",
-    "email_admin" : "fellipeqa21@teste.com",
+    "nome_completo" : "Fc Qa II",
+    "nome_completo_admin" : "Fc Qa Admin",
+    "email" : "fcqa@teste.com",
+    "email_admin" : "fcadmin@teste.com",
     "senha" : "12345678",
     "mensagemEmailUsado" : "Este email já está sendo usado"
   }

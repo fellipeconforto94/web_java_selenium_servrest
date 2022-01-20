@@ -19,6 +19,10 @@ public class LoginAction extends Commands {
         if (json == "valido") {
             loginJson = JsonObj.getJsonDataObject("LoginData", "valido");
         }
+        if (json == "admin") {
+            loginJson = JsonObj.getJsonDataObject("LoginData", "valido_admin");
+        }
+
         if (json == "invalido") {
             loginJson = JsonObj.getJsonDataObject("LoginData", "invalido");
         }
@@ -36,6 +40,13 @@ public class LoginAction extends Commands {
         realizarLogin("valido");
         isVisible(homeElements.btnHome);
     }
+
+    public void realizarLoginSucessoAdmin() throws Exception {
+
+        realizarLogin("admin");
+        isVisible(homeElements.btnHome);
+    }
+
 
     public void realizarLoginInvalido() throws Exception {
 

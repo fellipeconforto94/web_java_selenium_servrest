@@ -43,6 +43,10 @@ public class Commands extends DriverLoading {
         return getElement(locator).isDisplayed();
     }
 
+    public void isNotVisible(By locator) {
+        new WebDriverWait(getDriver(), DEFAULT_TIME_WAIT).until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
     protected boolean isClickable(By locator) {
         new WebDriverWait(getDriver(), DEFAULT_TIME_WAIT)
                 .until(ExpectedConditions.elementToBeClickable(getElement(locator)));
