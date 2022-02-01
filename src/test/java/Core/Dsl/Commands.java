@@ -33,6 +33,25 @@ public class Commands extends DriverLoading {
         getElement(locator).click();
     }
 
+    public void check(By locator) throws Exception {
+        if (!(driver.findElement(locator).isSelected())) {
+            isVisible(locator);
+            click(locator);
+        }
+    }
+
+    public void unCheck(By locator) throws Exception {
+        if ((driver.findElement(locator).isSelected())) {
+            isVisible(locator);
+            click(locator);
+        }
+    }
+
+    public void switchFrame(By locator) {
+        new WebDriverWait(getDriver(), DEFAULT_TIME_WAIT).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator));
+
+    }
+
     protected WebElement waitElement(By locator) {
         return new WebDriverWait(getDriver(), DEFAULT_TIME_WAIT)
                 .until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -78,6 +97,22 @@ public class Commands extends DriverLoading {
 
     protected WebElement getElement(By locator) {
         return waitElement(locator);
+    }
+
+    public Commands selectByText(By locator, String text) throws Exception {
+
+        isVisible(locator);
+        new org.openqa.selenium.support.ui.Select(driver.findElement(locator)).selectByVisibleText(text);
+
+        return this;
+    }
+
+    public Commands selectByValue(By locator, String value) {
+
+        isVisible(locator);
+        new org.openqa.selenium.support.ui.Select(driver.findElement(locator)).selectByValue(value);
+
+        return this;
     }
 
 }

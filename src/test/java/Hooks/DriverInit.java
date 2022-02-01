@@ -1,6 +1,4 @@
 package Hooks;
-import Core.PagesMap.CadastrarPageElements.CadastrarElements;
-import Core.PagesMap.LoginPageElements.LoginElements;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -11,10 +9,15 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static Core.Dsl.Commands.getDriver;
 
 public class DriverInit extends DriverLoading {
+
+    public static String caminhoEvidenciaCompletoErros = "";
+    public static int contadorPassos = 1;
 
     @Before
     public void beforeRunTest() throws IOException {
@@ -24,24 +27,41 @@ public class DriverInit extends DriverLoading {
     }
 
     @Rule
-    public TestName testName = new TestName();
+   public TestName testName = new TestName();
 
     @After
     public void afterRunTest() throws IOException {
 
-        TakesScreenshot ss = (TakesScreenshot) getDriver();
-        File arquivo = ss.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshot" +
-                        File.separator + testName.getMethodName() + ".jpg"));
-
-
+        takeScreenshot("Tela Fechamento");
         driver.quit();
     }
 
-    // Base para CTs
+    /*
+     * Screenshot da tela aplica nome da tela no nome do screenshot variavel screen
+     */
+    public static void takeScreenshot(String screen) throws IOException {
 
-    LoginElements loginElements = new LoginElements();
-    CadastrarElements cadastrarElements = new CadastrarElements();
+        String carimbo_data = getCarimboData();
+        File arquivo = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        String fullPath =  "target" + File.separator + "evidencias" +
+                File.separator + "/" + carimbo_data + " - " + "Passo " + contadorPassos + " - " + screen + ".png";
+        caminhoEvidenciaCompletoErros = fullPath;
+
+        FileUtils.copyFile(arquivo, new File(fullPath));
+        contadorPassos++;
+    }
+
+
+     //retorna o carimbo da data no formato selecionado
+
+    public static String getCarimboData() {
+        String pattern = "yyyyMMddHHmmss";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        System.out.println(date);
+        return date;
+    }
+
 }
 
 

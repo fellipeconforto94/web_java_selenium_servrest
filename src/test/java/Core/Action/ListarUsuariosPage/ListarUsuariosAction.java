@@ -2,7 +2,6 @@ package Core.Action.ListarUsuariosPage;
 
 import Core.Dsl.Commands;
 import Core.PagesMap.ListarUsuariosPageElements.ListarUsuariosElements;
-import Core.PagesMap.LoginPageElements.LoginElements;
 
 public class ListarUsuariosAction extends Commands {
 

@@ -3,6 +3,7 @@ package Core.Action.LoginPage;
 import Core.Dsl.Commands;
 import Core.PagesMap.HomePageElements.HomeElements;
 import Core.PagesMap.LoginPageElements.LoginElements;
+import Hooks.DriverInit;
 import Utils.JsonObj;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
@@ -33,6 +34,7 @@ public class LoginAction extends Commands {
         sendKeys(dadosLogin.inputEmailLogin, (String) loginJson.get("email"));
         sendKeys(dadosLogin.inputSenhaLogin, (String) loginJson.get("senha"));
         click(dadosLogin.btnEntrarLogin);
+        DriverInit.takeScreenshot("Tela de Login");
     }
 
     public void realizarLoginSucesso() throws Exception {

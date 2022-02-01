@@ -13,7 +13,7 @@ public class Geradores {
             if(email==null || email.isEmpty()){
                 SimpleDateFormat sdf = new SimpleDateFormat("ddMMYYYYHHmmssSSS");
                 String random = sdf.format(new Date());
-                email = "fellipeqa+" + random + "@teste.com";
+                email = "qatester+" + random + "@teste.com";
 
         }
             return email;
