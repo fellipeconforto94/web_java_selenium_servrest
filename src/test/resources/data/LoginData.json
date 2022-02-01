@@ -1,0 +1,23 @@
+{
+  "valido" : {
+    "email" : "fcadmin@teste.com",
+    "senha" : "12345678"
+  },
+  "valido_admin" : {
+    "email" : "adm.qa@teste.com",
+    "senha" : "qatest"
+  },
+
+  "invalido" : {
+    "email" : "fellipetest@invalido.com",
+    "senha" : "error",
+    "errorMsgEmailSenhaInvalidos" : "Email e/ou senha inválidos"
+  },
+
+  "vazio" : {
+    "email" : "",
+    "senha" : "",
+    "errorMsgEmailObrigatorio" : "Email é obrigatório",
+    "errorMsgSenhaObrigatorio" : "Password é obrigatório"
+  }
+}
